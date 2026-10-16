@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Economic Liberation Lesson 1: turn a practical skill into a clear, testable business offer.">
+  <title>Lesson 1: Build Your First Offer | Bangside Revolution</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .lesson-wrap { max-width: 900px; margin: auto; padding: 52px 6% 80px; }
+    .lesson-back { color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+    .lesson-wrap h1 { font-size: clamp(34px, 7vw, 62px); line-height: 1.05; margin: 22px 0; }
+    .lesson-wrap h1 span, .lesson-wrap h2 span { color: var(--gold); }
+    .lesson-intro { color: #c2bdb6; font-size: 17px; max-width: 720px; }
+    .lesson-panel { margin-top: 24px; padding: 25px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold); }
+    .lesson-panel h2 { margin-top: 0; font-size: 24px; }
+    .lesson-panel p, .lesson-panel li { color: #c2bdb6; }
+    .lesson-panel li { margin: 8px 0; }
+    .lesson-form label { display: block; margin: 17px 0 7px; color: var(--white); font-size: 13px; font-weight: 700; }
+    .lesson-form input, .lesson-form textarea { width: 100%; padding: 12px; border: 1px solid #444; background: #090909; color: var(--white); font: inherit; border-radius: 2px; }
+    .lesson-form textarea { min-height: 90px; resize: vertical; }
+    .lesson-form input:focus, .lesson-form textarea:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .lesson-check { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; }
+    .lesson-check input { width: auto; margin-top: 5px; }
+    .lesson-button { margin-top: 22px; padding: 13px 18px; border: 0; background: var(--red); color: white; font-weight: 800; letter-spacing: 1px; cursor: pointer; }
+    .lesson-note { font-size: 12px; color: var(--muted) !important; }
+    #save-status { color: var(--gold); margin-top: 16px; }
+    .lesson-footer { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 40px; color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">BANGSIDE<span>REVOLUTION</span></a>
+    <a class="menu-link" href="../index.html#courses">ALL COURSES ↑</a>
+  </header>
+
+  <main class="lesson-wrap">
+    <a class="lesson-back" href="../index.html#courses">← RETURN TO THE FOUNDING CURRICULUM</a>
+    <p class="eyebrow">ECONOMIC LIBERATION / LESSON 01</p>
+    <h1>TURN A SKILL INTO<br><span>A REAL OFFER.</span></h1>
+    <p class="lesson-intro">Ownership starts with understanding what you can provide, who may need it, and how to test whether someone values it. In this lesson, you'll draft a simple offer and create your first portfolio asset.</p>
+
+    <section class="lesson-panel">
+      <h2>What you'll complete</h2>
+      <ul>
+        <li>Identify one useful skill or service you can provide.</li>
+        <li>Define a specific type of customer and a problem they face.</li>
+        <li>Write a clear offer with a scope and a proposed price.</li>
+        <li>Estimate costs and choose a low-cost way to test demand.</li>
+      </ul>
+      <p><strong>Time:</strong> 30–45 minutes. <strong>Deliverable:</strong> a one-page offer plan.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 1 — Start with a useful skill</h2>
+      <p>A business offer is not just an idea. It describes a specific result you can reasonably deliver to a specific person or organization. Start with something you can do now or learn to do responsibly.</p>
+      <p>Examples include formatting a résumé, editing short videos, creating a basic website, organizing a spreadsheet, designing a flyer, or tutoring a subject you understand.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 2 — Define the customer and problem</h2>
+      <p>A broad audience is hard to serve. Choose one group and one problem. For example: independent barbers who need a simple page showing their services, location, and booking information.</p>
+      <p>Do not assume people will pay. Later, ask potential customers about the problem and test your offer before investing heavily.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 3 — Build your offer plan</h2>
+      <form class="lesson-form" id="offer-form">
+        <label for="skill">1. What skill or service will you offer?</label>
+        <input id="skill" name="skill" required maxlength="200" placeholder="Example: short-form video editing">
+
+        <label for="customer">2. Who is the specific customer?</label>
+        <input id="customer" name="customer" required maxlength="200" placeholder="Example: local independent barbers">
+
+        <label for="problem">3. What problem will you help solve?</label>
+        <textarea id="problem" name="problem" required maxlength="1000" placeholder="Describe the customer's problem in plain language."></textarea>
+
+        <label for="deliverable">4. What exactly will the customer receive?</label>
+        <textarea id="deliverable" name="deliverable" required maxlength="1000" placeholder="List the work included, delivery format, and limits."></textarea>
+
+        <label for="price">5. What price will you test? (USD)</label>
+        <input id="price" name="price" type="number" min="0" step="0.01" required placeholder="Example: 40">
+
+        <label for="costs">6. What costs or time are required?</label>
+        <textarea id="costs" name="costs" required maxlength="1000" placeholder="Include software, materials, fees, and estimated hours."></textarea>
+
+        <label for="test">7. How will you test demand without overspending?</label>
+        <textarea id="test" name="test" required maxlength="1000" placeholder="Example: ask five potential customers for feedback before buying tools."></textarea>
+
+        <label class="lesson-check"><input type="checkbox" id="reviewed" required> I have reviewed my offer for clarity, realistic delivery, and honest claims.</label>
+
+        <button class="lesson-button" type="submit">DOWNLOAD MY OFFER PLAN</button>
+        <p id="save-status" role="status" aria-live="polite"></p>
+        <p class="lesson-note">Your answers are processed in this browser to create a text file. This page does not send them to a server or save them to a user account.</p>
+      </form>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 4 — Know the numbers</h2>
+      <p>A proposed price is not profit. Subtract direct expenses and account for your time, platform fees, taxes, refunds, and other costs. A simple first estimate is:</p>
+      <p><strong>Estimated amount before tax = price − direct costs − transaction fees.</strong></p>
+      <p>This is only a starting estimate, not a guarantee of sales or take-home income. Verify the real costs for your situation.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 5 — Your next action</h2>
+      <ol>
+        <li>Save your offer plan to your device.</li>
+        <li>Ask at least three potential customers for honest feedback.</li>
+        <li>Record what they actually say; do not count polite interest as a sale.</li>
+        <li>Revise the offer based on evidence before spending significant money.</li>
+      </ol>
+      <p><strong>Completion standard:</strong> you have a written offer, defined scope, proposed price, cost estimate, and a concrete demand-test plan.</p>
+    </section>
+
+    <div class="lesson-footer">
+      <p>Knowledge. Ownership. Liberation.</p>
+      <p>This educational lesson does not promise income, employment, or business success. Learners are responsible for validating demand and complying with applicable laws and platform rules.</p>
+      <a class="lesson-back" href="../index.html#courses">← BACK TO BANGSIDE REVOLUTION</a>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('offer-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const fields = [
+        ['Skill or service', 'skill'],
+        ['Target customer', 'customer'],
+        ['Customer problem', 'problem'],
+        ['Deliverable and scope', 'deliverable'],
+        ['Proposed price (USD)', 'price'],
+        ['Costs and time', 'costs'],
+        ['Demand test', 'test']
+      ];
+      const lines = [
+        'BANGSIDE REVOLUTION — ECONOMIC LIBERATION',
+        'LESSON 01: MY FIRST OFFER PLAN',
+        'Created: ' + new Date().toLocaleDateString(),
+        ''
+      ];
+      for (const [label, id] of fields) {
+        lines.push(label + ':');
+        lines.push(document.getElementById(id).value.trim());
+        lines.push('');
+      }
+      lines.push('Review completed: Yes');
+      lines.push('');
+      lines.push('Next step: collect feedback and validate demand before investing.');
+      const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'bangside-first-offer-plan.txt';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      document.getElementById('save-status').textContent = 'Your offer plan download was requested. Check your device Downloads folder.';
+    });
+  </script>
+</body>
+</html>
