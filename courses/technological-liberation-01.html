@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Technological Liberation Lesson 1: build a simple personal portfolio webpage using HTML and CSS.">
+  <title>Lesson 1: Build Your First Webpage | Bangside Revolution</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .lesson-wrap { max-width: 900px; margin: auto; padding: 52px 6% 80px; }
+    .lesson-back { color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+    .lesson-wrap h1 { font-size: clamp(34px, 7vw, 62px); line-height: 1.05; margin: 22px 0; }
+    .lesson-wrap h1 span, .lesson-wrap h2 span { color: var(--gold); }
+    .lesson-intro { color: #c2bdb6; font-size: 17px; max-width: 720px; }
+    .lesson-panel { margin-top: 24px; padding: 25px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold); }
+    .lesson-panel h2 { margin-top: 0; font-size: 24px; }
+    .lesson-panel p, .lesson-panel li { color: #c2bdb6; }
+    .lesson-panel li { margin: 8px 0; }
+    .lesson-button { display: inline-block; margin-top: 12px; padding: 13px 18px; border: 0; background: var(--red); color: white; font-weight: 800; letter-spacing: 1px; cursor: pointer; text-decoration: none; }
+    .lesson-note { font-size: 12px; color: var(--muted) !important; }
+    .lesson-code { display: block; overflow-x: auto; white-space: pre; padding: 18px; background: #070707; border: 1px solid #343434; color: #f5f2ed; font: 13px/1.6 monospace; }
+    .lesson-footer { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 40px; color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">BANGSIDE<span>REVOLUTION</span></a>
+    <a class="menu-link" href="../index.html#courses">ALL COURSES ↑</a>
+  </header>
+
+  <main class="lesson-wrap">
+    <a class="lesson-back" href="../index.html#courses">← RETURN TO THE FOUNDING CURRICULUM</a>
+    <p class="eyebrow">TECHNOLOGICAL LIBERATION / LESSON 01</p>
+    <h1>BUILD YOUR FIRST<br><span>WEBPAGE.</span></h1>
+    <p class="lesson-intro">Learn the foundation of the web by creating a simple personal portfolio page. You will work with HTML for structure and CSS for appearance, then save a project you can improve and show to others.</p>
+
+    <section class="lesson-panel">
+      <h2>What you'll complete</h2>
+      <ul>
+        <li>Understand the difference between HTML and CSS.</li>
+        <li>Create a personal portfolio page with a heading, introduction, and skills list.</li>
+        <li>Download a working starter project to edit on your device.</li>
+        <li>Identify the next steps toward publishing a portfolio online.</li>
+      </ul>
+      <p><strong>Time:</strong> 25–40 minutes. <strong>Deliverable:</strong> a starter portfolio webpage.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 1 — Understand the building blocks</h2>
+      <p><strong>HTML</strong> describes the content and structure: headings, paragraphs, links, and lists. <strong>CSS</strong> controls how that content looks: colors, spacing, typography, and layout. A browser reads both to display the page.</p>
+      <p>You do not need to memorize everything. Learn to read the code, change a small piece, and observe the result.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 2 — Your first HTML example</h2>
+      <p>This is a complete, minimal webpage. The text between tags becomes visible content in the browser.</p>
+      <pre class="lesson-code"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;My Name and My Work&lt;/h1&gt;
+  &lt;p&gt;I am building useful skills and projects.&lt;/p&gt;
+  &lt;h2&gt;Skills I Am Developing&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Web development&lt;/li&gt;
+    &lt;li&gt;Problem solving&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>Try changing the heading and list items when you open the downloaded project in a text editor. Keep the opening and closing tags paired.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 3 — Add your own project details</h2>
+      <p>Use the generator below to create a starter portfolio file. Use a public display name or project name if you prefer not to share personal information. Do not include your home address, passwords, or private account details.</p>
+      <form id="portfolio-form">
+        <label for="display-name">Display name or project name</label>
+        <input id="display-name" name="display-name" required maxlength="80" placeholder="Example: Northside Digital Studio" style="width:100%;padding:12px;background:#090909;color:var(--white);border:1px solid #444;font:inherit">
+
+        <label for="tagline" style="display:block;margin:17px 0 7px">What are you building?</label>
+        <input id="tagline" name="tagline" required maxlength="160" placeholder="Example: Simple websites for local businesses" style="width:100%;padding:12px;background:#090909;color:var(--white);border:1px solid #444;font:inherit">
+
+        <label for="skills" style="display:block;margin:17px 0 7px">Skills to practice or showcase</label>
+        <textarea id="skills" name="skills" required maxlength="500" rows="4" placeholder="Example: HTML, CSS, writing, design" style="width:100%;padding:12px;background:#090909;color:var(--white);border:1px solid #444;font:inherit"></textarea>
+
+        <label for="project" style="display:block;margin:17px 0 7px">A project you plan to build</label>
+        <textarea id="project" name="project" required maxlength="500" rows="4" placeholder="Describe a small project you can realistically complete." style="width:100%;padding:12px;background:#090909;color:var(--white);border:1px solid #444;font:inherit"></textarea>
+
+        <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px"><input type="checkbox" id="review" required> I have checked the details and will not publish private information or claim skills I have not developed.</label>
+        <button class="lesson-button" type="submit">DOWNLOAD MY PORTFOLIO PAGE</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="lesson-note">The generator creates an HTML file in your browser. Your entries are not sent to this website or saved to a user account.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Part 4 — Test your work</h2>
+      <ol>
+        <li>Download your HTML file.</li>
+        <li>Open it with a browser or compatible HTML editor.</li>
+        <li>Check that your heading, introduction, skills, and project all appear.</li>
+        <li>Change one sentence in the code and reopen the file to confirm your edit.</li>
+        <li>Keep a copy of the original and your edited version.</li>
+      </ol>
+      <p>A file on your device is a local project, not yet a public website. Publishing requires a hosting service or web server and a review of what information you make public.</p>
+    </section>
+
+    <section class="lesson-panel">
+      <h2>Completion standard</h2>
+      <p>You have completed this lesson when you can explain what HTML does, identify what CSS does, generate your page, open it successfully, and make one change yourself.</p>
+      <p class="lesson-note">This lesson provides a beginner exercise, not a job credential or a promise of income. Build and test projects before offering paid services.</p>
+    </section>
+
+    <footer class="lesson-footer">
+      <a class="lesson-back" href="../index.html#courses">← BACK TO BANGSIDE REVOLUTION</a>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('portfolio-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const get = id => document.getElementById(id).value.trim();
+      const escapeHTML = value => value.replace(/[&<>"']/g, character => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      })[character]);
+      const name = escapeHTML(get('display-name'));
+      const tagline = escapeHTML(get('tagline'));
+      const skills = get('skills').split(/\n|,/).map(item => item.trim()).filter(Boolean);
+      const project = escapeHTML(get('project'));
+      const skillItems = skills.map(skill => '      <li>' + escapeHTML(skill) + '</li>').join('\n');
+      const page = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${name} | Portfolio</title>
+  <style>
+    body{max-width:760px;margin:50px auto;padding:0 20px;font:17px/1.7 Arial,sans-serif;color:#202020}
+    h1{font-size:2.5rem}h2{margin-top:2rem}li{margin:.5rem 0}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>${name}</h1>
+    <p>${tagline}</p>
+  </header>
+  <main>
+    <section>
+      <h2>Skills I Am Developing</h2>
+      <ul>
+${skillItems}
+      </ul>
+    </section>
+    <section>
+      <h2>Project in Progress</h2>
+      <p>${project}</p>
+    </section>
+  </main>
+  <footer><p>Portfolio draft — update this page as your work develops.</p></footer>
+</body>
+</html>`;
+      const blob = new Blob([page], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'bangside-portfolio.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      document.getElementById('status').textContent = 'Your portfolio HTML download was requested. Open the file and check your work.';
+    });
+  </script>
+</body>
+</html>
