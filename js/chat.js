@@ -279,7 +279,22 @@
       await openRoom(room);
       setStatus('Room created: ' + room.name, false);
     } catch (error) {
-      setStatus('Could not create room: ' + error.message, true);
+      const { data: sessionData } = await client.auth.getSession();
+      const sessionUserId = sessionData.session?.user?.id || null;
+      const sameUser = Boolean(currentUser?.id && sessionUserId === currentUser.id);
+      console.error('Room creation diagnostic', {
+        currentUserPresent: Boolean(currentUser?.id),
+        sessionUserMatches: sameUser,
+        errorCode: error.code || null,
+        errorDetails: error.details || null,
+        errorHint: error.hint || null
+      });
+      setStatus(
+        'Could not create room: ' + error.message +
+        ' (session match: ' + sameUser +
+        ', error code: ' + (error.code || 'none') + ')',
+        true
+      );
     } finally {
       submitButton.disabled = false;
     }
