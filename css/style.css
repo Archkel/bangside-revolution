@@ -357,3 +357,83 @@ footer {
   .identity-grid { grid-template-columns: 1fr; }
   .identity-card { min-height: 195px; }
 }
+
+/* Learn -> Build -> Earn -> Own pathway */
+.pathway {
+  padding: 85px 8%;
+  background: #101010;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.pathway > h2 {
+  margin: 22px 0;
+  font-size: clamp(34px, 6.5vw, 66px);
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.pathway > h2 span {
+  color: var(--gold);
+}
+
+.pathway-intro {
+  max-width: 720px;
+  color: #bbb6af;
+  font-size: 16px;
+}
+
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.pathway-card {
+  min-width: 0;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+}
+
+.pathway-number {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.pathway-card h3 {
+  margin: 14px 0 8px;
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.pathway-card p {
+  margin-bottom: 0;
+  color: #bdb8b1;
+  font-size: 14px;
+}
+
+.pathway-disclaimer {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .pathway {
+    padding: 62px 6%;
+  }
+
+  .pathway-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pathway-card {
+    padding: 21px;
+  }
+}
