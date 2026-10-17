@@ -450,3 +450,253 @@ footer {
     padding: 21px;
   }
 }
+
+/* BANGSIDE REVOLUTION — RESPONSIVE DESKTOP UPGRADE */
+:root {
+  --layout-max: 1440px;
+  --layout-gutter: clamp(22px, 5vw, 84px);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --panel-surface: #111113;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+main > section,
+body > header,
+body > footer {
+  box-sizing: border-box;
+}
+
+.site-nav {
+  position: relative;
+  z-index: 10;
+  padding: 18px var(--layout-gutter);
+}
+
+.site-nav .menu-link {
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.site-nav .menu-link:hover {
+  color: var(--gold);
+}
+
+.hero,
+.unity,
+.identity-directory,
+.courses,
+.pathway,
+.projects-preview,
+.manifesto {
+  padding-left: var(--layout-gutter);
+  padding-right: var(--layout-gutter);
+}
+
+.hero {
+  min-height: min(720px, 82vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-copy {
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+.hero-mark {
+  max-width: var(--layout-max);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.identity-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.identity-card {
+  min-width: 0;
+  border: 1px solid var(--panel-border);
+  transition: transform 200ms ease, border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.course-card,
+.pathway-card {
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #151517, #0c0c0e);
+  transition: transform 200ms ease, border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.courses > .eyebrow,
+.courses > h2 {
+  grid-column: 1 / -1;
+}
+
+.courses > .eyebrow {
+  margin-bottom: 0;
+}
+
+.courses > h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: clamp(22px, 2.4vw, 36px);
+}
+
+.course-card h3 {
+  line-height: 1.15;
+}
+
+.course-card p,
+.pathway-card p {
+  line-height: 1.75;
+}
+
+.course-card .primary-button {
+  margin-top: auto !important;
+}
+
+.course-status {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.pathway-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pathway-card {
+  padding: clamp(20px, 2vw, 30px);
+}
+
+.pathway-intro {
+  max-width: 780px;
+  line-height: 1.8;
+}
+
+.projects-preview,
+.manifesto,
+.unity {
+  max-width: var(--layout-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-preview > p:not(.eyebrow) {
+  max-width: 760px;
+  line-height: 1.8;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--gold, #e8bd57);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .identity-card:hover,
+  .course-card:hover,
+  .pathway-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(232, 189, 87, 0.55);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media (min-width: 1500px) {
+  .hero,
+  .identity-directory,
+  .courses,
+  .pathway {
+    padding-left: max(var(--layout-gutter), calc((100vw - var(--layout-max)) / 2));
+    padding-right: max(var(--layout-gutter), calc((100vw - var(--layout-max)) / 2));
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1050px) {
+  .identity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pathway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .courses {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .identity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .pathway-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .identity-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
