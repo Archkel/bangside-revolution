@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn what you learn into practical projects, documented skills, and a portfolio you control.">
+  <title>Projects & Portfolio | Bangside Revolution</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .project-page { width: min(1000px, 90%); margin: auto; padding: 34px 0 76px; }
+    .project-page .eyebrow { color: var(--gold); letter-spacing: .12em; font-weight: 700; font-size: .82rem; }
+    .project-page h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.08; margin: 16px 0; }
+    .project-page h1 span, .project-page h2 span { color: var(--red); }
+    .project-page h2 { margin-top: 36px; }
+    .project-page p, .project-page li { color: var(--muted); line-height: 1.7; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 24px 0; }
+    .project-card, .project-form-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .project-card h3 { margin-top: 8px; }
+    .project-tag { color: var(--gold); font-size: .78rem; letter-spacing: .08em; font-weight: 700; }
+    .project-form-panel { margin-top: 24px; }
+    .project-form-panel label { display: block; margin: 16px 0 7px; font-weight: 600; color: var(--white); }
+    .project-form-panel input, .project-form-panel textarea, .project-form-panel select { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid var(--line); border-radius: 7px; background: #090909; color: var(--white); font: inherit; }
+    .project-form-panel textarea { min-height: 90px; resize: vertical; }
+    .project-form-panel button { margin-top: 18px; cursor: pointer; border: 0; border-radius: 7px; padding: 13px 18px; font: inherit; font-weight: 700; background: var(--gold); color: #090909; }
+    .project-note { font-size: .9rem; }
+    .project-back { display: inline-block; margin-bottom: 28px; color: var(--white); }
+    @media (max-width: 700px) { .project-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="project-page">
+    <a class="project-back" href="../index.html">← Back to Bangside Revolution</a>
+
+    <p class="eyebrow">BUILD SOMETHING THAT IS YOURS</p>
+    <h1>LEARNING IS THE START.<br><span>PROOF IS POWER.</span></h1>
+    <p>A skill becomes easier to demonstrate when you can show what you made, explain how you made it, and describe what you learned. Start small. Document the work. Keep control of your files and understand your rights before entering a partnership.</p>
+
+    <h2>What can you build?</h2>
+    <div class="project-grid">
+      <article class="project-card">
+        <span class="project-tag">ECONOMICS</span>
+        <h3>A business offer</h3>
+        <p>Define a customer, identify a real problem, describe a deliverable, estimate costs, and test whether people want it.</p>
+        <a href="../courses/economic-liberation-01.html">Start the offer lesson →</a>
+      </article>
+      <article class="project-card">
+        <span class="project-tag">TECHNOLOGY</span>
+        <h3>A personal webpage</h3>
+        <p>Create a simple page that presents a project and your actual skills. Test it locally and learn what hosting requires.</p>
+        <a href="../courses/technological-liberation-01.html">Start the webpage lesson →</a>
+      </article>
+      <article class="project-card">
+        <span class="project-tag">PSYCHOLOGY</span>
+        <h3>A communication plan</h3>
+        <p>Practice separating facts from assumptions, making a specific request, and choosing a boundary you can maintain.</p>
+        <a href="../courses/psychological-liberation-01.html">Start the communication lesson →</a>
+      </article>
+    </div>
+
+    <h2>Build your next project brief</h2>
+    <p>Use this worksheet to turn an idea into a manageable piece of work. Be specific about what you will deliver and how you will know it is finished.</p>
+
+    <section class="project-form-panel">
+      <form id="project-form">
+        <label for="project-title">Project title</label>
+        <input id="project-title" required maxlength="120" placeholder="Example: My first portfolio website">
+
+        <label for="project-category">Skill area</label>
+        <select id="project-category" required>
+          <option value="">Choose an area</option>
+          <option>Business and economics</option>
+          <option>Programming and web development</option>
+          <option>Automation and cybersecurity fundamentals</option>
+          <option>Communication and personal development</option>
+          <option>Creative work and design</option>
+          <option>Other</option>
+        </select>
+
+        <label for="project-problem">What problem or need does it address?</label>
+        <textarea id="project-problem" required maxlength="1200" placeholder="Describe the problem or purpose."></textarea>
+
+        <label for="project-deliverable">What will you actually produce?</label>
+        <textarea id="project-deliverable" required maxlength="1200" placeholder="Name the file, webpage, plan, design, or other deliverable."></textarea>
+
+        <label for="project-steps">Your first three steps</label>
+        <textarea id="project-steps" required maxlength="1600" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+
+        <label for="project-proof">How will you demonstrate that it works?</label>
+        <textarea id="project-proof" required maxlength="1200" placeholder="Describe a test, demonstration, or acceptance checklist."></textarea>
+
+        <label for="project-deadline">Target date (optional)</label>
+        <input id="project-deadline" type="date">
+
+        <button type="submit">Download My Project Brief</button>
+      </form>
+      <p class="project-note">Your entries are processed in this browser to create a text file. They are not uploaded to this website or saved to an account.</p>
+    </section>
+
+    <h2>Make the work count</h2>
+    <ul>
+      <li>Keep original project files and dated versions of your work.</li>
+      <li>Describe your own contribution honestly. Do not claim skills or results you cannot demonstrate.</li>
+      <li>Remove passwords, private customer information, and other sensitive data before sharing a project.</li>
+      <li>Agree on payment, responsibilities, intellectual property, and ownership in writing before starting a partnership.</li>
+      <li>Ask for permission before publishing work that belongs to someone else.</li>
+    </ul>
+
+    <p class="project-note">This is a local project-planning page, not yet a public submission portal or jobs marketplace. No job placement, payment, or income is promised.</p>
+    <a class="project-back" href="../index.html">← Return to the main site</a>
+  </main>
+
+  <script>
+    (() => {
+      const form = document.getElementById('project-form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const fields = [
+          ['Project title', 'project-title'],
+          ['Skill area', 'project-category'],
+          ['Problem or need', 'project-problem'],
+          ['Deliverable', 'project-deliverable'],
+          ['First three steps', 'project-steps'],
+          ['Proof of completion', 'project-proof'],
+          ['Target date', 'project-deadline']
+        ];
+
+        const content = [
+          'BANGSIDE REVOLUTION — PROJECT BRIEF',
+          'Created locally in your browser',
+          '',
+          ...fields.flatMap(([label, id]) => [
+            label + ':',
+            document.getElementById(id).value.trim() || 'Not specified',
+            ''
+          ]),
+          'Completion reminder: test the deliverable and document what you actually built.'
+        ].join('\n');
+
+        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'bangside-project-brief.txt';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+    })();
+  </script>
+</body>
+</html>
