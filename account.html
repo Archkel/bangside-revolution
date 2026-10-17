@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>Account | Bangside Revolution</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">BANGSIDE<span>REVOLUTION</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="menu-link" href="index.html#courses">COURSES</a>
+      <a class="menu-link" href="projects/index.html">PROJECTS</a>
+      <a class="menu-link" href="account.html">ACCOUNT</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">BANGSIDE REVOLUTION / MEMBER ACCESS</p>
+      <h1>YOUR NEXT CHAPTER<br><span>STARTS HERE.</span></h1>
+      <p class="hero-copy">Create an account or sign in to continue learning and building.</p>
+    </section>
+    <section class="courses" style="max-width:600px;margin:40px auto;padding:0 20px">
+      <p id="account-status" role="status" aria-live="polite">Connecting to account services…</p>
+      <div id="account-forms">
+        <form id="signup-form">
+          <h2>CREATE ACCOUNT</h2>
+          <label for="signup-name">Display name</label>
+          <input id="signup-name" name="displayName" type="text" maxlength="60" required>
+          <label for="signup-email">Email</label>
+          <input id="signup-email" name="email" type="email" autocomplete="email" required>
+          <label for="signup-password">Password (at least 8 characters)</label>
+          <input id="signup-password" name="password" type="password" minlength="8" autocomplete="new-password" required>
+          <button class="primary-button" type="submit">CREATE ACCOUNT</button>
+        </form>
+        <hr>
+        <form id="login-form">
+          <h2>SIGN IN</h2>
+          <label for="login-email">Email</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required>
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          <button class="primary-button" type="submit">SIGN IN</button>
+        </form>
+      </div>
+      <section id="signed-in-panel" hidden>
+        <h2>YOU'RE SIGNED IN</h2>
+        <p id="signed-in-email"></p>
+        <p id="signed-in-name"></p>
+        <button id="signout-button" class="primary-button" type="button">SIGN OUT</button>
+      </section>
+      <a class="secondary-button" href="index.html">BACK TO HOME</a>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>

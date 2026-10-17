@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Local runtime files
+server.log
+server.pid
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Backups
+backups/
+*.bak
+*.backup
+*.backup-*
+*.pre-audio-backup
+*.pre-media-backup

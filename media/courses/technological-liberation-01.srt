@@ -1,0 +1,247 @@
+1
+00:00:00,100 --> 00:00:02,712
+Welcome to Bangside Revolution.
+
+2
+00:00:02,662 --> 00:00:06,025
+This lesson is called Build Your First Webpage.
+
+3
+00:00:06,025 --> 00:00:12,025
+Today, you will learn the foundations of web development by creating a simple personal portfolio.
+
+4
+00:00:12,025 --> 00:00:14,962
+You do not need to be an expert programmer.
+
+5
+00:00:14,962 --> 00:00:20,450
+You need a device, a text editor, a browser, and the willingness to experiment.
+
+6
+00:00:20,450 --> 00:00:25,475
+Let's start with two essential building blocks: HTML and CSS.
+
+7
+00:00:25,475 --> 00:00:29,275
+HTML stands for HyperText Markup Language.
+
+8
+00:00:29,275 --> 00:00:32,950
+It defines the structure and content of a webpage.
+
+9
+00:00:32,950 --> 00:00:38,937
+Headings, paragraphs, links, and lists are all examples of HTML content.
+
+10
+00:00:38,937 --> 00:00:42,362
+CSS stands for Cascading Style Sheets.
+
+11
+00:00:42,362 --> 00:00:49,075
+CSS controls presentation: colors, spacing, fonts, borders, and page layout.
+
+12
+00:00:49,075 --> 00:00:54,837
+Think of HTML as the structure of a building and CSS as the design of its rooms.
+
+13
+00:00:54,837 --> 00:00:58,412
+They work together, but they serve different purposes.
+
+14
+00:00:58,412 --> 00:01:01,925
+You do not have to memorize every tag or property.
+
+15
+00:01:01,925 --> 00:01:06,750
+Learn to read the code, make one small change, and observe what happens.
+
+16
+00:01:06,750 --> 00:01:09,750
+Part one: understand the structure.
+
+17
+00:01:09,750 --> 00:01:16,400
+A basic HTML document begins with a declaration that tells the browser to use modern HTML.
+
+18
+00:01:16,400 --> 00:01:19,812
+The HTML element contains the page.
+
+19
+00:01:19,812 --> 00:01:24,450
+The head contains information about the document, including its title.
+
+20
+00:01:24,450 --> 00:01:27,562
+The body contains the content people see.
+
+21
+00:01:27,562 --> 00:01:30,075
+Headings organize information.
+
+22
+00:01:30,075 --> 00:01:32,650
+Paragraphs explain ideas.
+
+23
+00:01:32,650 --> 00:01:35,537
+Unordered lists group related items.
+
+24
+00:01:35,537 --> 00:01:40,237
+Opening and closing tags usually work together, so keep them paired.
+
+25
+00:01:40,237 --> 00:01:43,387
+Part two: create your first page.
+
+26
+00:01:43,387 --> 00:01:48,275
+Open a text editor and create a new file named index dot html.
+
+27
+00:01:48,275 --> 00:01:51,725
+Add a heading introducing yourself or your project.
+
+28
+00:01:51,725 --> 00:01:56,475
+Under it, write a short paragraph explaining what you are learning or building.
+
+29
+00:01:56,475 --> 00:01:59,800
+Then add a list of three skills you are developing.
+
+30
+00:01:59,800 --> 00:02:01,662
+Save the file.
+
+31
+00:02:01,662 --> 00:02:03,900
+Open it in a web browser.
+
+32
+00:02:03,900 --> 00:02:07,862
+You should see your heading, introduction, and skills list.
+
+33
+00:02:07,862 --> 00:02:11,625
+If something does not appear correctly, do not panic.
+
+34
+00:02:11,625 --> 00:02:19,825
+Check the spelling of your tags, make sure the closing tags are present, and confirm that you saved the file with the HTML extension.
+
+35
+00:02:19,825 --> 00:02:22,437
+Part three: make it your own.
+
+36
+00:02:22,437 --> 00:02:27,200
+Use the portfolio generator on the lesson page to create a starter file.
+
+37
+00:02:27,200 --> 00:02:30,462
+Choose a public display name or a project name.
+
+38
+00:02:30,462 --> 00:02:32,600
+Write a short tagline.
+
+39
+00:02:32,600 --> 00:02:37,787
+Add skills you are genuinely developing, and describe a project you are working on.
+
+40
+00:02:37,787 --> 00:02:39,912
+Protect your privacy.
+
+41
+00:02:39,912 --> 00:02:47,337
+Do not put your home address, passwords, private account details, or other sensitive information into a portfolio.
+
+42
+00:02:47,337 --> 00:02:51,887
+Before publishing anything, review what visitors will be able to see.
+
+43
+00:02:51,887 --> 00:02:54,662
+Part four: test your work.
+
+44
+00:02:54,662 --> 00:03:01,050
+Download your generated HTML file and open it with a browser or compatible HTML editor.
+
+45
+00:03:01,050 --> 00:03:05,737
+Confirm that the heading, introduction, skills, and project appear.
+
+46
+00:03:05,737 --> 00:03:08,537
+Now change one sentence in the code.
+
+47
+00:03:08,537 --> 00:03:11,062
+Save the file and reopen it.
+
+48
+00:03:11,062 --> 00:03:13,637
+Confirm that your change appears.
+
+49
+00:03:13,637 --> 00:03:19,137
+Keep a copy of the original and your edited version so you can recover if something goes wrong.
+
+50
+00:03:19,137 --> 00:03:23,650
+Remember: a webpage saved on your device is a local project.
+
+51
+00:03:23,650 --> 00:03:26,325
+It is not yet a public website.
+
+52
+00:03:26,325 --> 00:03:32,925
+Publishing requires a hosting service or web server, and you should review your content before making it public.
+
+53
+00:03:32,925 --> 00:03:35,475
+Here is your completion challenge.
+
+54
+00:03:35,475 --> 00:03:40,975
+Explain, in your own words, what HTML does and what CSS does.
+
+55
+00:03:40,975 --> 00:03:43,700
+Generate your portfolio page.
+
+56
+00:03:43,700 --> 00:03:45,862
+Open it successfully.
+
+57
+00:03:45,862 --> 00:03:49,487
+Then make one change yourself and verify the result.
+
+58
+00:03:49,487 --> 00:03:55,387
+You have completed this lesson when you can perform those steps without simply copying instructions.
+
+59
+00:03:55,387 --> 00:04:01,925
+Technology becomes more useful when you can understand it, shape it, and use it to build something of your own.
+
+60
+00:04:01,925 --> 00:04:07,075
+Start small, test your work, protect your information, and keep learning.
+
+61
+00:04:07,075 --> 00:04:10,175
+Thank you for learning with Bangside Revolution.
+
+62
+00:04:10,175 --> 00:04:17,687
+Your next step is to keep improving your portfolio and explore how a local webpage can eventually become a published website.
