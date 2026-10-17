@@ -305,3 +305,38 @@
 #join-live-call {
   border: 1px solid var(--gold);
 }
+
+.live-call-panel {
+  margin: 16px 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.live-call-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.live-call-heading h3 {
+  margin: 0;
+}
+
+.live-call-container {
+  width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+}
+
+.live-call-container iframe {
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  border: 0;
+}

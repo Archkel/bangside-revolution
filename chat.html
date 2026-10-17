@@ -67,6 +67,19 @@
           </div>
         </div>
 
+        <section id="live-call-panel" class="live-call-panel" hidden>
+          <div class="live-call-heading">
+            <h3>Live room call</h3>
+            <button id="leave-live-call" class="secondary-button" type="button">
+              Leave Call
+            </button>
+          </div>
+          <div id="live-call-container" class="live-call-container"></div>
+          <p class="video-warning">
+            Use only for public testing. Anyone who knows the meeting link may be able to join.
+          </p>
+        </section>
+
         <div id="message-list" class="message-list" aria-live="polite"
              aria-label="Messages">
           <p class="empty-state">Choose a room to begin.</p>
@@ -99,6 +112,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/supabase-client.js"></script>
+  <script src="https://meet.jit.si/external_api.js"></script>
   <script src="js/chat.js"></script>
 </body>
 </html>

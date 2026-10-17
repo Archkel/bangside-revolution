@@ -336,14 +336,73 @@
 
   $('refresh-rooms').addEventListener('click', loadRooms);
 
+  const callPanel = $('live-call-panel');
+  const callContainer = $('live-call-container');
+  let liveCall = null;
+
   joinCallButton.addEventListener('click', function () {
     if (!currentUser || !activeRoom) {
       setStatus('Sign in and select a room before joining a call.', true);
       return;
     }
+
+    if (typeof window.JitsiMeetExternalAPI !== 'function') {
+      setStatus('The call service did not load. Refresh and try again.', true);
+      return;
+    }
+
+    if (liveCall) {
+      setStatus('You are already in the call.');
+      return;
+    }
+
     const callRoom = 'BangsideRevolution-' + activeRoom.id;
-    const callUrl = 'https://meet.jit.si/' + callRoom;
-    window.open(callUrl, '_blank', 'noopener,noreferrer');
+    callPanel.hidden = false;
+    joinCallButton.disabled = true;
+
+    try {
+      liveCall = new window.JitsiMeetExternalAPI('meet.jit.si', {
+        roomName: callRoom,
+        parentNode: callContainer,
+        width: '100%',
+        height: 480,
+        configOverwrite: {
+          prejoinPageEnabled: true
+        },
+        interfaceConfigOverwrite: {
+          MOBILE_APP_PROMO: false
+        }
+      });
+
+      liveCall.addEventListener('readyToClose', function () {
+        if (liveCall) {
+          liveCall.dispose();
+          liveCall = null;
+        }
+        callContainer.replaceChildren();
+        callPanel.hidden = true;
+        joinCallButton.disabled = !currentUser || !activeRoom;
+        setStatus('You left the call.');
+      });
+
+      setStatus('Call opened. Allow camera and microphone access if prompted.');
+    } catch (error) {
+      liveCall = null;
+      callPanel.hidden = true;
+      joinCallButton.disabled = !currentUser || !activeRoom;
+      setStatus('Could not start the call: ' + error.message, true);
+    }
+  });
+
+  $('leave-live-call').addEventListener('click', function () {
+    if (liveCall) {
+      liveCall.dispose();
+      liveCall = null;
+    }
+    callContainer.replaceChildren();
+    callPanel.hidden = true;
+    joinCallButton.disabled = !currentUser || !activeRoom;
+    setStatus('You left the call.');
   });
 
   async function start() {
