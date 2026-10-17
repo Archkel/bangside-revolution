@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical lesson in communication, trust, boundaries, and thoughtful decision-making.">
+  <title>Lesson 1: Communication and Boundaries | Bangside Revolution</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .lesson { width: min(900px, 92%); margin: 0 auto; padding: 42px 0 70px; }
+    .lesson-label { color: var(--gold); letter-spacing: .12em; font-size: .82rem; font-weight: 700; }
+    .lesson h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; margin: 14px 0; }
+    .lesson h2 { margin-top: 30px; }
+    .lesson p, .lesson li { line-height: 1.7; color: var(--muted); }
+    .lesson strong { color: var(--white); }
+    .lesson-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 22px; margin: 22px 0; }
+    .lesson label { display: block; margin: 16px 0 7px; color: var(--white); font-weight: 600; }
+    .lesson input[type="text"], .lesson textarea, .lesson select { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid var(--line); border-radius: 7px; background: #090909; color: var(--white); font: inherit; }
+    .lesson textarea { min-height: 95px; resize: vertical; }
+    .lesson .checkline { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0; font-weight: 400; }
+    .lesson .checkline input { margin-top: 5px; }
+    .lesson button { cursor: pointer; border: 0; border-radius: 7px; padding: 12px 18px; font: inherit; font-weight: 700; background: var(--gold); color: #090909; }
+    .lesson .secondary-button { display: inline-block; padding: 11px 16px; border: 1px solid var(--line); border-radius: 7px; color: var(--white); text-decoration: none; margin: 5px 8px 5px 0; }
+    .lesson .notice { font-size: .92rem; }
+  </style>
+</head>
+<body>
+  <main class="lesson">
+    <a class="secondary-button" href="../index.html">← Back to Bangside Revolution</a>
+
+    <p class="lesson-label">PSYCHOLOGICAL LIBERATION / LESSON 01</p>
+    <h1>Communicate Clearly. Set Boundaries. Choose Deliberately.</h1>
+    <p>Strong relationships and productive collaboration require more than good intentions. They require clear communication, respect for boundaries, and decisions made with awareness of consequences.</p>
+
+    <section class="lesson-panel">
+      <h2>What you will complete</h2>
+      <ul>
+        <li>Separate observable facts from assumptions.</li>
+        <li>Write a clear statement about a concern or need.</li>
+        <li>Identify a personal boundary and a reasonable next step.</li>
+        <li>Create a plan for a difficult conversation.</li>
+      </ul>
+    </section>
+
+    <h2>1. Separate facts from interpretation</h2>
+    <p>A fact is something you directly observed or can verify. An interpretation is the meaning you assign to it. Confusing the two can make misunderstandings harder to resolve.</p>
+    <p><strong>Example:</strong> “The message has not received a reply since yesterday” is an observation. “They are deliberately disrespecting me” is an interpretation that may or may not be accurate.</p>
+    <p>Before reacting, ask: What do I know? What am I assuming? What information would help clarify the situation?</p>
+
+    <h2>2. Make a clear statement</h2>
+    <p>Try this structure: “When [specific behavior or event] happens, I feel or experience [impact]. I need or request [specific action].” Describe behavior rather than attacking a person's character. The other person can still disagree; clear communication does not guarantee agreement.</p>
+
+    <h2>3. Understand boundaries</h2>
+    <p>A boundary describes what you will participate in and what action you will take to protect your time, safety, or well-being. It is not a tool for controlling another person's choices.</p>
+    <p><strong>Example:</strong> “If the conversation turns into insults, I will pause it and return when we can speak respectfully.” A boundary should be realistic, clear, and within your control.</p>
+
+    <h2>4. Pause before a high-stakes response</h2>
+    <p>When emotions run high, consider delaying a non-urgent response, checking the facts, and identifying the outcome you actually want. If someone threatens you or you feel unsafe, prioritize distance and safety over resolving the conversation.</p>
+
+    <section class="lesson-panel">
+      <h2>Your communication plan</h2>
+      <p>Use a real situation if it is safe to do so, or practice with a fictional example. Do not include private details, passwords, addresses, or identifying information about other people.</p>
+
+      <form id="communication-form">
+        <label for="situation">Situation or concern</label>
+        <textarea id="situation" required maxlength="1200" placeholder="Describe what happened using observable details."></textarea>
+
+        <label for="known">What do you know, and what are you assuming?</label>
+        <textarea id="known" required maxlength="1200" placeholder="List the facts first, then the interpretations you want to check."></textarea>
+
+        <label for="impact">What impact does this have on you?</label>
+        <textarea id="impact" required maxlength="1000" placeholder="Describe the practical or emotional impact without attacking anyone."></textarea>
+
+        <label for="request">What specific request could you make?</label>
+        <textarea id="request" required maxlength="1000" placeholder="Write a clear, realistic request."></textarea>
+
+        <label for="boundary">What boundary is within your control?</label>
+        <textarea id="boundary" required maxlength="1000" placeholder="State what you will do if the situation continues."></textarea>
+
+        <label for="nextstep">Your next step</label>
+        <select id="nextstep" required>
+          <option value="">Choose a next step</option>
+          <option>Ask a clarifying question</option>
+          <option>Request a calm conversation</option>
+          <option>Pause and revisit the issue later</option>
+          <option>Set a boundary and follow through</option>
+          <option>Seek support from a trusted person</option>
+          <option>Prioritize safety and create distance</option>
+        </select>
+
+        <label class="checkline">
+          <input type="checkbox" id="review" required>
+          <span>I reviewed my plan for clarity, respect, safety, and actions within my control.</span>
+        </label>
+
+        <button type="submit">Download My Communication Plan</button>
+      </form>
+      <p class="notice">Your entries are used in this browser to generate a text file. This lesson does not send them to a server or save them to an account.</p>
+    </section>
+
+    <h2>Completion standard</h2>
+    <p>You have completed this lesson when you can distinguish an observation from an assumption, make one specific request, and describe a boundary you can reasonably maintain. You do not have to share your answers with anyone.</p>
+    <p class="notice">This is educational material, not therapy or a guarantee that another person will respond positively. In situations involving abuse, threats, or immediate danger, prioritize safety and appropriate professional or emergency support.</p>
+
+    <a class="secondary-button" href="../index.html">Return to the learning pathway</a>
+  </main>
+
+  <script>
+    (() => {
+      const form = document.getElementById('communication-form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const fields = [
+          ['Situation or concern', 'situation'],
+          ['Facts and assumptions', 'known'],
+          ['Impact', 'impact'],
+          ['Specific request', 'request'],
+          ['Personal boundary', 'boundary'],
+          ['Next step', 'nextstep']
+        ];
+
+        const content = [
+          'BANGSIDE REVOLUTION — PSYCHOLOGICAL LIBERATION',
+          'LESSON 01: COMMUNICATION PLAN',
+          'Created locally in your browser',
+          '',
+          ...fields.flatMap(([label, id]) => [
+            label + ':',
+            document.getElementById(id).value.trim(),
+            ''
+          ]),
+          'Reminder: Review this plan before acting. Prioritize safety when needed.'
+        ].join('\n');
+
+        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'bangside-communication-plan.txt';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+    })();
+  </script>
+</body>
+</html>
