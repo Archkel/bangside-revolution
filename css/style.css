@@ -700,3 +700,139 @@ select:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* BANGSIDE REVOLUTION — ADVANCED HEADER */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 78px;
+  padding: 14px var(--layout-gutter, 6%);
+  background: rgba(9, 9, 9, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.brand {
+  flex-shrink: 0;
+  font-size: clamp(15px, 1.15vw, 19px);
+  letter-spacing: 2.5px;
+  transition: opacity 180ms ease;
+}
+
+.brand:hover {
+  opacity: 0.82;
+}
+
+.brand span {
+  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: 4.5px;
+}
+
+.site-nav {
+  gap: clamp(14px, 2vw, 30px);
+}
+
+.site-nav .menu-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  color: #c5c1bb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  transition: color 180ms ease;
+}
+
+.site-nav .menu-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.site-nav .menu-link:hover {
+  color: var(--white);
+}
+
+.site-nav .menu-link:hover::after,
+.site-nav .menu-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.site-nav .menu-link:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+}
+
+@media (min-width: 1000px) {
+  .topbar {
+    padding-right: max(var(--layout-gutter, 6%), calc((100vw - 1440px) / 2));
+    padding-left: max(var(--layout-gutter, 6%), calc((100vw - 1440px) / 2));
+  }
+
+  .site-nav {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    position: relative;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 5%;
+  }
+
+  .brand {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  .brand span {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .site-nav {
+    gap: 12px;
+  }
+
+  .site-nav .menu-link {
+    min-height: 36px;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .site-nav .menu-link,
+  .site-nav .menu-link::after {
+    transition: none;
+  }
+}
