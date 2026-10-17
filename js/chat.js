@@ -12,6 +12,7 @@
   const roomForm = $('room-create-form');
   const messageForm = $('message-form');
   const messageInput = $('message-input');
+  const joinCallButton = $('join-live-call');
   const sendButton = $('send-message');
 
   let currentUser = null;
@@ -215,6 +216,7 @@
 
   async function openRoom(room) {
     activeRoom = room;
+    joinCallButton.disabled = !currentUser;
     $('active-room-name').textContent = room.name;
     $('active-room-description').textContent =
       room.description || (room.visibility === 'public'
@@ -334,6 +336,16 @@
 
   $('refresh-rooms').addEventListener('click', loadRooms);
 
+  joinCallButton.addEventListener('click', function () {
+    if (!currentUser || !activeRoom) {
+      setStatus('Sign in and select a room before joining a call.', true);
+      return;
+    }
+    const callRoom = 'BangsideRevolution-' + activeRoom.id;
+    const callUrl = 'https://meet.jit.si/' + callRoom;
+    window.open(callUrl, '_blank', 'noopener,noreferrer');
+  });
+
   async function start() {
     if (!client) {
       setStatus(
@@ -363,6 +375,7 @@
         if (!session || !session.user) {
           currentUser = null;
           activeRoom = null;
+          joinCallButton.disabled = true;
           stopMessageSubscription();
           app.hidden = true;
           showLogin();
