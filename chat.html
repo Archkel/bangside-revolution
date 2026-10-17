@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>Community Chat | Bangside Revolution</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      BANGSIDE REVOLUTION
+      <span>COMMUNITY CONNECTION</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="menu-link" href="index.html">HOME</a>
+      <a class="menu-link" href="projects/index.html">PROJECTS</a>
+      <a class="menu-link" href="account.html">ACCOUNT</a>
+    </nav>
+  </header>
+
+  <main class="chat-page">
+    <section class="chat-intro">
+      <p class="eyebrow">COMMUNITY • CONVERSATION • COLLABORATION</p>
+      <h1>Community <span>Chat</span></h1>
+      <p>Connect with members, exchange ideas, and build together.</p>
+    </section>
+
+    <div id="chat-status" class="chat-status" role="status" aria-live="polite">
+      Connecting to your account…
+    </div>
+
+    <section id="chat-app" class="chat-layout" hidden>
+      <aside class="room-panel">
+        <h2>Community rooms</h2>
+        <form id="room-create-form">
+          <label for="room-name">Create a room</label>
+          <input id="room-name" name="room-name" maxlength="100"
+                 placeholder="Room name" required>
+          <label for="room-visibility">Room access</label>
+          <select id="room-visibility" name="room-visibility">
+            <option value="public">Public — members can join</option>
+            <option value="private">Private — owner only until members are added</option>
+          </select>
+          <button type="submit">Create room</button>
+        </form>
+        <h3>Available to you</h3>
+        <div id="room-list" class="room-list"></div>
+      </aside>
+
+      <section class="conversation-panel" aria-label="Conversation">
+        <div class="conversation-heading">
+          <div>
+            <p class="eyebrow">NOW CONNECTED</p>
+            <h2 id="active-room-name">Choose a room</h2>
+            <p id="active-room-description">Select a room to read and send messages.</p>
+          </div>
+          <button id="refresh-rooms" class="secondary-button" type="button">
+            Refresh
+          </button>
+        </div>
+
+        <div id="message-list" class="message-list" aria-live="polite"
+             aria-label="Messages">
+          <p class="empty-state">Choose a room to begin.</p>
+        </div>
+
+        <form id="message-form" class="message-form">
+          <label class="visually-hidden" for="message-input">Your message</label>
+          <textarea id="message-input" name="message" maxlength="10000"
+                    rows="2" placeholder="Write a message…" required disabled></textarea>
+          <button id="send-message" type="submit" disabled>Send</button>
+        </form>
+        <p class="chat-note">Be respectful. Do not share passwords or private information.</p>
+      </section>
+    </section>
+
+    <section id="chat-login-prompt" class="login-prompt" hidden>
+      <h2>Sign in to join the conversation</h2>
+      <p>Community chat requires an authenticated Bangside Revolution account.</p>
+      <a class="chat-button-link" href="account.html">Go to your account</a>
+    </section>
+
+    <section class="video-preview">
+      <p class="eyebrow">COMING NEXT</p>
+      <h2>Live video conversations</h2>
+      <p>We're building camera, microphone, and live-call support separately from text chat.</p>
+      <p class="video-warning">Live calls are not active yet.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
