@@ -423,7 +423,10 @@
             if (body) {
               try {
                 const parsed = JSON.parse(body);
-                detail = parsed.error || parsed.message || body;
+                detail = (parsed.error || parsed.message || body) +
+                  (Array.isArray(parsed.missing) && parsed.missing.length
+                    ? ' — Missing: ' + parsed.missing.join(', ')
+                    : '');
               } catch (_) {
                 detail = body;
               }
