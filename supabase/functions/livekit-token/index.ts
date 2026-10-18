@@ -30,16 +30,26 @@ Deno.serve(async (req) => {
   }
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
-  const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY");
+  const supabaseKey =
+    Deno.env.get("SUPABASE_ANON_KEY") ??
+    Deno.env.get("SUPABASE_PUBLISHABLE_KEY");
   const livekitUrl = Deno.env.get("LIVEKIT_URL");
   const livekitKey = Deno.env.get("LIVEKIT_API_KEY");
   const livekitSecret = Deno.env.get("LIVEKIT_API_SECRET");
 
-  if (
-    !supabaseUrl || !supabaseKey || !livekitUrl ||
-    !livekitKey || !livekitSecret
-  ) {
-    return respond({ error: "Server configuration incomplete" }, 500);
+  const missing = [
+    !supabaseUrl && "SUPABASE_URL",
+    !supabaseKey && "SUPABASE_ANON_KEY or SUPABASE_PUBLISHABLE_KEY",
+    !livekitUrl && "LIVEKIT_URL",
+    !livekitKey && "LIVEKIT_API_KEY",
+    !livekitSecret && "LIVEKIT_API_SECRET",
+  ].filter(Boolean);
+
+  if (missing.length) {
+    return respond({
+      error: "Server configuration incomplete",
+      missing,
+    }, 500);
   }
 
   try {
