@@ -413,7 +413,26 @@
           body: { roomId: activeRoom.id }
         });
 
-      if (tokenError) throw new Error(tokenError.message || 'Could not request a call token.');
+      if (tokenError) {
+        let detail = tokenError.message || 'Could not request a call token.';
+        let status = '';
+        try {
+          if (tokenError.context) {
+            status = tokenError.context.status || '';
+            const body = await tokenError.context.clone().text();
+            if (body) {
+              try {
+                const parsed = JSON.parse(body);
+                detail = parsed.error || parsed.message || body;
+              } catch (_) {
+                detail = body;
+              }
+            }
+          }
+        } catch (_) {}
+        throw new Error('Token request failed' +
+          (status ? ' (HTTP ' + status + ')' : '') + ': ' + detail);
+      }
       if (!tokenData?.serverUrl || !tokenData?.participantToken) {
         throw new Error(tokenData?.error || 'The call service returned an incomplete token.');
       }
