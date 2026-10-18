@@ -339,66 +339,150 @@
   const callPanel = $('live-call-panel');
   const callContainer = $('live-call-container');
   let liveCall = null;
+  let localTracks = [];
 
-  joinCallButton.addEventListener('click', function () {
+  function resetCallUI(message) {
+    callContainer.replaceChildren();
+    callPanel.hidden = true;
+    liveCall = null;
+    localTracks = [];
+    joinCallButton.disabled = !currentUser || !activeRoom;
+    if (message) setStatus(message);
+  }
+
+  function attachTrack(track, participant, isLocal = false) {
+    if (!track || !participant) return;
+    const tile = document.createElement('div');
+    tile.className = 'live-video-tile';
+    tile.style.cssText =
+      'display:inline-flex;flex-direction:column;vertical-align:top;' +
+      'width:min(100%,420px);margin:8px;padding:8px;background:#171717;' +
+      'border-radius:10px;color:white;gap:6px;';
+
+    const label = document.createElement('p');
+    label.textContent = (participant.name || participant.identity || 'Participant') +
+      (isLocal ? ' (You)' : '');
+    tile.appendChild(label);
+
+    const media = track.attach();
+    media.style.maxWidth = '100%';
+    media.style.width = '100%';
+    media.autoplay = true;
+    if (track.kind === 'video') {
+      media.playsInline = true;
+      media.style.borderRadius = '8px';
+      media.muted = isLocal;
+      media.style.background = '#000';
+    } else {
+      media.controls = false;
+      media.muted = isLocal;
+    }
+    tile.appendChild(media);
+    callContainer.appendChild(tile);
+  }
+
+  function removeTrack(track) {
+    if (!track) return;
+    track.detach().forEach((element) => element.remove());
+  }
+
+  joinCallButton.addEventListener('click', async function () {
     if (!currentUser || !activeRoom) {
       setStatus('Sign in and select a room before joining a call.', true);
       return;
     }
-
-    if (typeof window.JitsiMeetExternalAPI !== 'function') {
-      setStatus('The call service did not load. Refresh and try again.', true);
-      return;
-    }
-
     if (liveCall) {
       setStatus('You are already in the call.');
       return;
     }
 
-    const callRoom = 'BangsideRevolution-' + activeRoom.id;
-    callPanel.hidden = false;
+    const sdk = window.LivekitClient;
+    if (!sdk || !sdk.Room || !sdk.RoomEvent) {
+      setStatus('LiveKit did not load. Refresh the page and try again.', true);
+      return;
+    }
+
     joinCallButton.disabled = true;
+    callPanel.hidden = false;
+    callContainer.replaceChildren();
+    setStatus('Connecting to the live call…');
 
     try {
-      liveCall = new window.JitsiMeetExternalAPI('meet.jit.si', {
-        roomName: callRoom,
-        parentNode: callContainer,
-        width: '100%',
-        height: 480,
-        configOverwrite: {
-          prejoinPageEnabled: true
-        },
-        interfaceConfigOverwrite: {
-          MOBILE_APP_PROMO: false
-        }
+      const { data: tokenData, error: tokenError } =
+        await client.functions.invoke('livekit-token', {
+          body: { roomId: activeRoom.id }
+        });
+
+      if (tokenError) throw new Error(tokenError.message || 'Could not request a call token.');
+      if (!tokenData?.serverUrl || !tokenData?.participantToken) {
+        throw new Error(tokenData?.error || 'The call service returned an incomplete token.');
+      }
+
+      const room = new sdk.Room({
+        adaptiveStream: true,
+        dynacast: true
+      });
+      liveCall = room;
+
+      room.on(sdk.RoomEvent.TrackSubscribed, (track, publication, participant) => {
+        attachTrack(track, participant, false);
       });
 
-      liveCall.addEventListener('readyToClose', function () {
-        if (liveCall) {
-          liveCall.dispose();
-          liveCall = null;
-        }
-        callContainer.replaceChildren();
-        callPanel.hidden = true;
-        joinCallButton.disabled = !currentUser || !activeRoom;
-        setStatus('You left the call.');
+      room.on(sdk.RoomEvent.TrackUnsubscribed, (track) => removeTrack(track));
+
+      room.on(sdk.RoomEvent.ParticipantDisconnected, (participant) => {
+        participant.trackPublications.forEach((publication) => {
+          if (publication.track) removeTrack(publication.track);
+        });
       });
 
-      setStatus('Call opened. Allow camera and microphone access if prompted.');
+      room.on(sdk.RoomEvent.Disconnected, () => {
+        if (liveCall === room) resetCallUI('Disconnected from the live call.');
+      });
+
+      await room.connect(tokenData.serverUrl, tokenData.participantToken);
+
+      const tracks = await sdk.createLocalTracks({
+        audio: true,
+        video: true
+      });
+      localTracks = tracks;
+
+      for (const track of tracks) {
+        await room.localParticipant.publishTrack(track);
+        if (track.kind === 'video') {
+          attachTrack(track, room.localParticipant, true);
+        }
+      }
+
+      setStatus('Connected to the live call. Allow camera and microphone access if prompted.');
     } catch (error) {
-      liveCall = null;
+      if (liveCall) {
+        const failedRoom = liveCall;
+        liveCall = null;
+        try { await failedRoom.disconnect(); } catch (_) {}
+      }
+      localTracks.forEach((track) => {
+        try { track.stop(); } catch (_) {}
+      });
+      localTracks = [];
+      callContainer.replaceChildren();
       callPanel.hidden = true;
       joinCallButton.disabled = !currentUser || !activeRoom;
-      setStatus('Could not start the call: ' + error.message, true);
+      setStatus('Could not start the call: ' + (error.message || 'Unknown error'), true);
     }
   });
 
-  $('leave-live-call').addEventListener('click', function () {
-    if (liveCall) {
-      liveCall.dispose();
-      liveCall = null;
+  $('leave-live-call').addEventListener('click', async function () {
+    const room = liveCall;
+    liveCall = null;
+    if (room) {
+      try { await room.disconnect(); } catch (_) {}
     }
+    localTracks.forEach((track) => {
+      try { track.stop(); } catch (_) {}
+    });
+    localTracks = [];
     callContainer.replaceChildren();
     callPanel.hidden = true;
     joinCallButton.disabled = !currentUser || !activeRoom;
